@@ -8,19 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var blurRadius: CGFloat = 5
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack{
+            Text("Hi Guys")
+                .font(Font.custom("Bebas Neue", size: 95))
+                .blur(radius: blurRadius)
+            
+            Slider(value: $blurRadius, in: 0...15)
+                .frame(width: 100)
+                .accentColor(Color(UIColor.white))
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .preferredColorScheme(.dark)
     }
 }
